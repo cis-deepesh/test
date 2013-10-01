@@ -1,0 +1,88 @@
+  <div style="width: 50%">
+    <legend><?php echo JText::_('COM_PROJECTDESIGN_FORM_LBL_PROJECTADD_TAB3');?></legend>
+    <div class="control-group">
+				<div class="control-label heading_tab"><?php echo $this->form->getLabel('project_name'); ?></div>
+				<div class="controls"><?php echo $this->form->getInput('project_name'); ?></div>
+			</div>
+    <div class="control-group">
+				<div class="control-label heading_tab"><?php echo $this->form->getLabel('project_desc'); ?></div>
+				<div class="controls"><?php echo $this->form->getInput('project_desc'); ?></div>
+			</div>
+   
+    <div class="control-group">
+				<div class="control-label heading_tab"><?php echo $this->form->getLabel('project_startdate'); ?></div>
+				<div class="controls"><?php echo $this->form->getInput('project_startdate'); ?></div>
+			</div>
+    <div class="control-group">
+				<div class="control-label heading_tab"><?php echo $this->form->getLabel('project_enddate'); ?></div>
+				<div class="controls"><?php echo $this->form->getInput('project_enddate'); ?></div>
+			</div>
+
+  
+    <?php
+     foreach($formdata as $formFields)
+    {
+	 if($formFields->field_tabtype=="tab3"){
+    ?>
+    <div class="control-group">
+        <div class="control-label heading_tab">
+            <?php echo $formFields->field_label;
+	    	if($formFields->field_is_required) echo '<span>  *</span>';
+	    ?>
+	    
+        </div>
+        <div class="controls">
+            <?php
+                $field=$this->form->getField('name');
+                $this->form->setFieldAttribute('name','type',$formFields->field_type);
+                $this->form->setFieldAttribute('name','name',$formFields->field_name);
+		$this->form->setFieldAttribute($formFields->field_name,'value',$formFields->field_value);
+		if($formFields->field_is_required) {
+		 $this->form->setFieldAttribute($formFields->field_name,'class','addaward required');
+		  $this->form->setFieldAttribute($formFields->field_name,'required','required');
+		}
+		else{
+		     $this->form->setFieldAttribute($formFields->field_name,'class','addaward');
+		  $this->form->setFieldAttribute($formFields->field_name,'required','');
+		}
+                echo  $this->form->getInput($formFields->field_name);
+                $this->form->setFieldAttribute($formFields->field_name,'name','name');
+            ?>
+        </div>
+    </div>
+    <?php } }?>
+   <div id="tabs">
+
+  		  
+<div id="tabs">
+  <ul>
+    <li><a href="#tabs-1">crowdIDEA Contract</a></li>
+    <li><a href="#tabs-2">Upload My Own</a></li>
+  </ul>
+  <div id="tabs-1">
+     <div class="control-group">
+				<div class="control-label heading_tab"><?php echo $this->form->getLabel('project_contractname'); ?></div>
+				<div class="controls"><?php echo $this->form->getInput('project_contractname'); ?></div>
+			</div>
+   <div class="control-group">
+				<div class="control-label heading_tab"><?php echo $this->form->getLabel('project_countryid'); ?></div>
+				<div class="controls"><?php echo $this->form->getInput('project_countryid'); ?></div>
+			</div>
+  </div>
+  <div id="tabs-2">
+   <div class="control-group">
+				<div class="control-label heading_tab"><?php echo $this->form->getLabel('project_contractfile'); ?></div>
+				<div class="controls"><?php echo $this->form->getInput('project_contractfile'); ?></div>
+			</div>
+  </div>
+
+</div>
+</div>
+    <div style="width: 50%">
+	   <legend><?php echo JText::_('COM_PROJECTDESIGN_FORM_LBL_PROJECTADD_TAB4');?></legend>
+            <label for="NameOnCard">Name on Card</label>
+            <input id="NameOnCard" type="text" />
+            <label for="CardNumber">Card Number</label>
+            <input id="CardNumber" type="text" />
+            <label for="CreditcardMonth">Expiration</label>
+     </div>
